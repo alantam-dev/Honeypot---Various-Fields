@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Form with Various Hidden Techniques</title>
+  <title>Form</title>
   <style>
     .hidden-visibility {
       visibility: hidden;
@@ -18,25 +18,28 @@
       position: absolute;
       clip: rect(0, 0, 0, 0);
       background-color: green;
+      top: 330px;
       left: 215px;
     }
     .hidden-clip-2 {
       position: absolute;
       clip: rect(0px, 9px, 9px, 0px);
       background-color: blue;
-      top: 275px;
+      top: 360px;
       left: 215px;
     }
     .visible-clip {
       position: absolute;
       clip: rect(0px, 11px, 11px, 0px);
       background-color: orange;
+      top: 390px;
       left: 215px;
     }
     .visible-clip-2 {
       position: absolute;
       clip: auto;
       background-color: pink;
+      top: 420px;
       left: 215px;
     }
     .field-row {
@@ -55,21 +58,19 @@
 
 <form>
   <div class="field-row">
-    <label for="visible">visible</label>
-    <input type="text" id="visible" name="visible" />
-  </div>
-
-  <hr>
-
-  <div class="field-row">
-    <label for="hidden">hidden</label>
-    <input type="text" id="hidden" name="hidden" hidden/>
-    <button id="toggleBtn">Add/Remove hidden attribute</button>
+    <label for="hidden (width:8px, height:8px)">hidden (width:8px, height:8px)</label>
+    <input type="text" id="hidden (width:8px, height:8px)" name="hidden (width:8px, height:8px)" style="width: 8px; height: 8px;" />
   </div>
 
   <div class="field-row">
-    <label for="tabindex">tabIndex=-1</label>
-    <input type="text" id="tabindex" name="tabindex" tabindex="-1" />
+    <label for="visible (width:15px, height:15px)">visible (width:15px, height:15px)</label>
+    <input type="text" id="visible (width:15px, height:15px)" name="visible (width:15px, height:15px)" style="width: 15px; height: 15px;" />
+  </div>
+
+  <div class="field-row">
+    <label for="hidden-attribute">hidden</label>
+    <input type="text" id="hidden-attribute" name="hidden-attribute" hidden/>
+    <button id="toggleBtn" style="font-size: 10px; padding: 4px 8px;">add/remove hidden attribute</button>
   </div>
 
   <div class="field-row">
@@ -80,6 +81,13 @@
   <div class="field-row">
     <label for="display">display: none</label>
     <input type="text" id="display" name="display" class="hidden-display" />
+  </div>
+
+  <hr>
+
+  <div class="field-row">
+    <label for="tabindex">tabIndex=-1</label>
+    <input type="text" id="tabindex" name="tabindex" tabindex="-1" />
   </div>
 
   <div class="field-row">
@@ -99,7 +107,7 @@
 
   <div class="field-row">
     <label for="hidden-clip-2">clip: rect(0px, 9px, 9px, 0px)</label>
-    <input type="text" id="hidden-clip-990" name="hidden-clip-0990" class="hidden-clip-2" />
+    <input type="text" id="hidden-clip-0990" name="hidden-clip-0990" class="hidden-clip-2" />
   </div>
 
   <div class="field-row">
@@ -114,7 +122,7 @@
 </form>
 
 <script>
-  const hiddenInput = document.getElementById('hidden');
+  const hiddenInput = document.getElementById('hidden-attribute');
   const toggleButton = document.getElementById('toggleBtn');
 
   toggleButton.addEventListener('click', (event) => {
